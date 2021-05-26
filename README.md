@@ -14,10 +14,10 @@ SQLite, PGAdmin 4
 
 ## Mentorship program eligibility 
 
-* A small number of employees are eligible for the Mentorship Program (1,549) compared to the number expected to retire (90,398).
-
 ![ mentorship_pie_chart.PNG](Resources/mentorship_pie_chart.PNG)
 
+
+* A small number of employees are eligible for the Mentorship Program (1,549) compared to the number expected to retire (90,398).
 * As shown in the pie chart above, significant proportions of those eligible for the mentorship program are staff, senior staff, engineers, and senior engineers. Few are technique leaders or assistant engineers.
 
 # Summary
