@@ -33,3 +33,10 @@ If we conduct further analysis, it would be beneficial to see if more specific j
 
 There are [estimates](https://partners.pennfoster.edu/blog/2015/september/the-cost-of-hiring-the-perfect-candidate-vs,-d-,-training-an-existing-employee) that employee turnover can cost 50%-60% of an employee’s annual salary due to lost productivity and training costs. By using the salaries.csv table, we could calculate the total wages of the employees expected to retire. This would give the business a rough estimate of the costs to expect associated with the turnover. 
 
+
+### **Contact:**
+
+**Email:** perry.abdulkadir@alumni.harvard.edu
+
+**Linkedin:** https://www.linkedin.com/in/perry-abdulkadir-6a255199/
+
