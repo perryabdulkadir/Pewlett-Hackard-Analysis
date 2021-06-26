@@ -82,6 +82,16 @@ ORDER BY emp_no, from_date DESC;
 SELECT * FROM unique_titles;
 ```
 
+The last step of this analysis was retrieving the number of employees about to retire by job title. I retrieved the number of each title using SELECT COUNT(title), then used INTO to create the retiring_titles table. Finally, I grouped the table by title and sorted in descending order by number of titles.
+
+```
+SELECT COUNT(title) as cnt, title 
+INTO retiring_titles
+FROM unique_titles
+GROUP BY title
+ORDER BY cnt DESC;
+```
+
 # Results
 ## Retiring by job title
 
