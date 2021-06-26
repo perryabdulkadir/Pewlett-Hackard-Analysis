@@ -45,6 +45,31 @@ SELECT * FROM dept_emp;
 
 ### Number of Employees Retiring by Job Title
 
+To begin the analysis of expected retirements, I retrieved the employee numbers, first names, and last names for employees born beteween 1952-1955 from the employees table. This selection was turned into a new table called retirement info using the into function. 
+
+```
+SELECT emp_no, first_name, last_name
+INTO retirement_info
+FROM employees
+WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+ORDER BY emp_no;
+
+SELECT * FROM dept_emp;
+```
+
+Next, I queried the newly-created retirement_info table to pull job titles, employment start dates, and employment end dates. Using the into method again, the queried data was turned into a new table, retirement_titles. I joined retirement_titles and retirement_info on the primary key. 
+
+```
+SELECT retirement_info.emp_no, retirement_info.first_name, retirement_info.last_name, 
+titles.title, titles.from_date, titles.to_date
+INTO retirement_titles
+FROM titles
+INNER JOIN retirement_info
+ON titles.emp_no = retirement_info.emp_no
+ORDER BY titles.emp_no;
+
+SELECT * FROM retirement_titles;
+```
 
 
 # Results
