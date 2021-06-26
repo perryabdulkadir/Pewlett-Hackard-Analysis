@@ -45,7 +45,7 @@ SELECT * FROM dept_emp;
 
 ### Number of Employees Retiring by Job Title
 
-To begin the analysis of expected retirements, I retrieved the employee numbers, first names, and last names for employees born beteween 1952-1955 from the employees table. This selection was turned into a new table called retirement info using the into function. 
+To begin the analysis of expected retirements, I retrieved the employee numbers, first names, and last names for employees born beteween 1952-1955 from the employees table. This selection was turned into a new table called retirement info using the INTO clause. 
 
 ```
 SELECT emp_no, first_name, last_name
@@ -57,7 +57,7 @@ ORDER BY emp_no;
 SELECT * FROM dept_emp;
 ```
 
-Next, I queried the newly-created retirement_info table to pull job titles, employment start dates, and employment end dates. Using the into method again, the queried data was turned into a new table, retirement_titles. I joined retirement_titles and retirement_info on the primary key. 
+Next, I queried the newly-created retirement_info table to pull job titles, employment start dates, and employment end dates. Using the INTO method again, the queried data was turned into a new table, retirement_titles. I joined retirement_titles and retirement_info on the primary key. 
 
 ```
 SELECT retirement_info.emp_no, retirement_info.first_name, retirement_info.last_name, 
@@ -71,6 +71,16 @@ ORDER BY titles.emp_no;
 SELECT * FROM retirement_titles;
 ```
 
+I retrieved the employee numbers, first and last names, and tiles from retirement_titles. Using DISTINCT ON to retrieve the first occurence of an employee numer, I again used the INTO clause to create a new table, unique_titles.
+
+```
+SELECT DISTINCT ON (emp_no) emp_no, first_name, last_name, title
+INTO unique_titles
+FROM retirement_titles
+ORDER BY emp_no, from_date DESC;
+
+SELECT * FROM unique_titles;
+```
 
 # Results
 ## Retiring by job title
