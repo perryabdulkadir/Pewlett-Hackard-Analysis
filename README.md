@@ -2,7 +2,8 @@
 Pewlett-Hackard is in a situation comparable to many other U.S. companies; they face the imminent retirement of many baby boomer employees, who constitute a disproportionately large share of employees due to that generation’s size. In order to proactively head off this issue, the firm has asked me to conduct an analysis of their employment records to determine how many retirees they can expect in the near future by job title, as well as which employees are eligible for a mentorship program.
 
 ## Tools
-Software: SQLite, PGAdmin 4
+Software: SQLite, PGAdmin 4, PostgreSQL
+Data: departments.csv, dept_emp.csv, dept_manager.csv, employees.csv, salaries.csv, titles.csv
 
 ## Analysis 
 
