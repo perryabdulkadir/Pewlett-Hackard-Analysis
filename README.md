@@ -82,7 +82,7 @@ ORDER BY emp_no, from_date DESC;
 SELECT * FROM unique_titles;
 ```
 
-The last step of this analysis was retrieving the number of employees about to retire by job title. I retrieved the number of each title using SELECT COUNT(title), then used INTO to create the retiring_titles table. Finally, I grouped the table by title and sorted in descending order by number of titles.
+The last step of this analysis was retrieving the number of employees about to retire by job title. I retrieved the number of each title using SELECT COUNT(title), then used INTO to create the retiring_titles table. Finally, I grouped the table by title and sorted in descending order by number of titles. Lastly, I ordered the table by employee number.
 
 ```
 SELECT COUNT(title) as cnt, title 
@@ -110,6 +110,7 @@ ORDER BY employees.emp_no;
 
 SELECT * FROM mentorship_eligibilty;
 ```
+Lastly, I exported the table as [mentorship_eligibilty.csv.](https://github.com/perryabdulkadir/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibilty.csv)
 
 
 ## Results
