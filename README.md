@@ -73,7 +73,7 @@ ORDER BY titles.emp_no;
 SELECT * FROM retirement_titles;
 ```
 
-I retrieved the employee numbers, first and last names, and tiles from retirement_titles. Using DISTINCT ON to retrieve the first occurrence of an employee number, I again used the INTO clause to create a new table, unique_titles.
+I retrieved the employee numbers, first and last names, and titles from retirement_titles. Using DISTINCT ON to retrieve the first occurrence of an employee number, I again used the INTO clause to create a new table, unique_titles.
 
 ```
 SELECT DISTINCT ON (emp_no) emp_no, first_name, last_name, title
