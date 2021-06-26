@@ -92,15 +92,35 @@ GROUP BY title
 ORDER BY cnt DESC;
 ```
 
-# Results
-## Retiring by job title
+### Mentorship program elegibility 
+
+I used a SQL query to retrieve a list of employees who would soon be elegible to participate in the mentorship program (those born in 1965). First, I retrieved the employee number, first name, last name, and birth date columns from the employees table. I retrieved these using the DISTINCT ON clause so as to only retrive the first instance of each employee number. Then, from the dept_emp table, I retrieved the from date and to date columns. Next, I retrived titles from the titles table. An INTO clause was used to put this retrieved information into a single, new table called mentorship_eligibility. 
+
+```
+SELECT DISTINCT ON (employees.emp_no) employees.emp_no, employees.first_name, employees.last_name, employees.birth_date,
+dept_emp.from_date, dept_emp.to_date,
+titles.title
+INTO mentorship_eligibilty
+FROM employees
+INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+INNER JOIN titles ON titles.emp_no = employees.emp_no
+WHERE dept_emp.to_date = '9999-01-01'
+AND (employees.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+ORDER BY employees.emp_no;
+
+SELECT * FROM mentorship_eligibilty;
+```
+
+
+## Results
+### Retiring by job title
 
 ![retiring_titles.PNG](Resources/retiring_titles.PNG)
 
 * The above table makes clear that in the near future, large numbers (10,000+) of senior engineers, senior staff, engineers, and staff will be needed. 
 * The table also demonstrates that the need for additional managers will be negligible. 
 
-## Mentorship program eligibility 
+### Mentorship program eligibility 
 
 ![ mentorship_pie_chart.PNG](Resources/mentorship_pie_chart.PNG)
 
@@ -108,7 +128,7 @@ ORDER BY cnt DESC;
 * A small number of employees are eligible for the Mentorship Program (1,549) compared to the number expected to retire (90,398).
 * As shown in the pie chart above, significant proportions of those eligible for the mentorship program are staff, senior staff, engineers, and senior engineers. Few are technique leaders or assistant engineers.
 
-# Summary
+## Summary
 90,398 employees are likely to retire soon in the silver tsunami. With over 90,000 positions soon to be empty, and only 1,549 employees eligible for the mentorship program, each mentor would need to take on 58 new employees. At that point, it would not be a mentor relationship but an auditorium lecture. So, Pewlett-Hackard must either broaden the eligibility for mentor participation or find another solution to getting the new hires acclimated. 
 
 If we conduct further analysis, it would be beneficial to see if more specific job title information exists. For example, over 40,000 employees simply have the title of “staff” or “senior staff”. If we could find department-level data on employees’ more specific titles, we could give the business a better idea of its staffing needs going forward. 
