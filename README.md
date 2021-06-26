@@ -3,6 +3,7 @@ Pewlett-Hackard is in a situation comparable to many other U.S. companies; they 
 
 ## Tools
 Software: SQLite, PGAdmin 4, PostgreSQL
+
 [Data:](https://github.com/perryabdulkadir/Pewlett-Hackard-Analysis/tree/main/Data/Raw_data) departments.csv, dept_emp.csv, dept_manager.csv, employees.csv, salaries.csv, titles.csv
 
 ## Analysis 
