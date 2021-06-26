@@ -1,5 +1,5 @@
 # Overview
-Pewlett-Hackard is in a situation comparable to many other U.S. companies; they face the imminent retirement of many baby boomer employees, who constitute a disproportionately large share of employees due to that generation’s size. In order to proactively head off this issue, the firm has asked me to conduct an analysis of their employment records to determine how many retirees they can expect in the near future by job title, as well as which employees are eligible for a mentorship program.
+Pewlett-Hackard is in a situation comparable to many other U.S. companies; they face the imminent retirement of many baby boomer employees, who constitute a disproportionately large share of employees due to that generation’s size. To proactively head off this issue, the firm has asked me to conduct an analysis of their employment records to determine how many retirees they can expect in the near future by job title, as well as which employees are eligible for a mentorship program.
 
 ## Tools
 Software: SQLite, PGAdmin 4, PostgreSQL
@@ -47,7 +47,7 @@ SELECT * FROM dept_emp;
 
 ### Number of Employees Retiring by Job Title
 
-To begin the analysis of expected retirements, I retrieved the employee numbers, first names, and last names for employees born beteween 1952-1955 from the employees table. This selection was turned into a new table called retirement info using the INTO clause. 
+To begin the analysis of expected retirements, I retrieved the employee numbers, first names, and last names for employees born between 1952-1955 from the employees table. This selection was turned into a new table called retirement info using the INTO clause. 
 
 ```
 SELECT emp_no, first_name, last_name
@@ -59,7 +59,7 @@ ORDER BY emp_no;
 SELECT * FROM dept_emp;
 ```
 
-Next, I queried the newly-created retirement_info table to pull job titles, employment start dates, and employment end dates. Using the INTO method again, the queried data was turned into a new table, retirement_titles. I joined retirement_titles and retirement_info on the primary key. 
+Next, I queried the newly created retirement_info table to pull job titles, employment start dates, and employment end dates. Using the INTO method again, the queried data was turned into a new table, retirement_titles. I joined retirement_titles and retirement_info on the primary key. 
 
 ```
 SELECT retirement_info.emp_no, retirement_info.first_name, retirement_info.last_name, 
@@ -73,7 +73,7 @@ ORDER BY titles.emp_no;
 SELECT * FROM retirement_titles;
 ```
 
-I retrieved the employee numbers, first and last names, and tiles from retirement_titles. Using DISTINCT ON to retrieve the first occurence of an employee numer, I again used the INTO clause to create a new table, unique_titles.
+I retrieved the employee numbers, first and last names, and tiles from retirement_titles. Using DISTINCT ON to retrieve the first occurrence of an employee number, I again used the INTO clause to create a new table, unique_titles.
 
 ```
 SELECT DISTINCT ON (emp_no) emp_no, first_name, last_name, title
@@ -95,9 +95,9 @@ ORDER BY cnt DESC;
 ```
 The retirement_titles, unique_titles, and retiring_titles were all exported as [their respective .CSVs.](https://github.com/perryabdulkadir/Pewlett-Hackard-Analysis/tree/main/Data)
 
-### Mentorship program elegibility 
+### Mentorship program eligibility 
 
-I used a SQL query to retrieve a list of employees who would soon be elegible to participate in the mentorship program (those born in 1965). First, I retrieved the employee number, first name, last name, and birth date columns from the employees table. I retrieved these using the DISTINCT ON clause so as to only retrive the first instance of each employee number. Then, from the dept_emp table, I retrieved the from date and to date columns. Next, I retrived titles from the titles table. An INTO clause was used to put this retrieved information into a single, new table called mentorship_eligibility. I then joined the employees and dept_emp tables using INNER JOIN. Subsequently, I joined employees and titles using the primary key. I filtered for all employees born in 1965 after setting to_date to the year 9999-01-01 so as to search all current employees. 
+I used an SQL query to retrieve a list of employees who would soon be eligible to participate in the mentorship program (those born in 1965). First, I retrieved the employee number, first name, last name, and birth date columns from the employees table. I retrieved these using the DISTINCT ON clause so as to only retrieve the first instance of each employee number. Then, from the dept_emp table, I retrieved the from date and to date columns. Next, I retrieved titles from the titles table. An INTO clause was used to put this retrieved information into a single, new table called mentorship_eligibility. I then joined the employees and dept_emp tables using INNER JOIN. Subsequently, I joined employees and titles using the primary key. I filtered for all employees born in 1965 after setting to_date to the year 9999-01-01 to search all current employees. 
 
 ```
 SELECT DISTINCT ON (employees.emp_no) employees.emp_no, employees.first_name, employees.last_name, employees.birth_date,
